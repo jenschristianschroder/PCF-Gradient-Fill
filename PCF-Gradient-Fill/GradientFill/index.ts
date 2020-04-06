@@ -2,7 +2,7 @@ import {IInputs, IOutputs} from "./generated/ManifestTypes";
 import DataSetInterfaces = ComponentFramework.PropertyHelper.DataSetApi;
 type DataSet = ComponentFramework.PropertyTypes.DataSet;
 
-export class LinearGradientFill implements ComponentFramework.StandardControl<IInputs, IOutputs> {
+export class GradientFill implements ComponentFramework.StandardControl<IInputs, IOutputs> {
 
 	// Cached context object for the latest updateView
 	private contextObj: ComponentFramework.Context<IInputs>;
