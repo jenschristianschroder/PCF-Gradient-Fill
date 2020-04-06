@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="PowerAppsGuy" constructor="GradientFill" version="0.0.5" display-name-key="GradientFill" description-key="GradientFill description" control-type="standard">
+  <control namespace="PowerAppsGuy" constructor="GradientFill" version="0.0.7" display-name-key="GradientFill" description-key="GradientFill description" control-type="standard">
     <!-- dataset node represents a set of entity records on CDS; allow more than one datasets -->
     <data-set name="GradientDataSet" display-name-key="GradientDataset_Display_Key">
       <property-set name="offset" display-name-key="offset_Display_Key" description-key="Gradient offset" of-type="Whole.None" usage="bound" required="true" />
       <property-set name="color" display-name-key="color_Display_Key" description-key="Gradient color" of-type="SingleLine.Text" usage="bound" required="true" />
     </data-set>
+    <property name="shape" display-name-key="shape_Display_Key" description-key="shape" of-type="SingleLine.Text" usage="input" required="false"/>
+<!-- 
     <property name="shape" display-name-key="shape_Display_Key" description-key="shape" of-type="Enum" usage="input" required="false">
       <value name="Rectangle" display-name-key="Rectangle" description-key="Rectangular shape" default="true">Rectangle</value>
       <value name="Circle" display-name-key="Circle" description-key="Circular shape">Circle</value>
     </property>
+     -->
+    <property name="gradient" display-name-key="gradient_Display_Key" description-key="gradient" of-type="SingleLine.Text" usage="input" required="false"/>
+    <!-- 
     <property name="gradient" display-name-key="gradient_Display_Key" description-key="gradient" of-type="Enum" usage="input" required="false">
       <value name="Linear" display-name-key="Linear" description-key="Linear" default="true">Linear</value>
       <value name="Radial" display-name-key="Radial" description-key="Radial">Radial</value>
     </property>
+     -->
     <property name="rotation" display-name-key="rotation_Display_Key" description-key="Rotation" of-type="Whole.None" usage="input" required="false" />
     <property name="offsetStart" display-name-key="offsetStart_Display_Key" description-key="Start offset" of-type="Whole.None" usage="input" required="true" />
     <property name="offsetEnd" display-name-key="offsetEnd_Display_Key" description-key="End offset" of-type="Whole.None" usage="input" required="true" />

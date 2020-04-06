@@ -12,10 +12,10 @@ export class GradientFill implements ComponentFramework.StandardControl<IInputs,
 	private controlWidth: number;
 	private controlHeight: number;
 
-	private gradient: Gradient;
+	private gradient: string;//Gradient;
 	private gradientElement: string;
 
-	private shape: Shape;
+	private shape: string;//Shape;
 	private shapeElement: string;
 	
 	private offsetStart: number;
@@ -111,12 +111,12 @@ export class GradientFill implements ComponentFramework.StandardControl<IInputs,
 
 		if(context.parameters.shape != null){
 			if(context.parameters.shape.raw != null)
-				this.shape = Shape[context.parameters.shape.raw];
+				this.shape = context.parameters.shape.raw;
 		}
 
 		if(context.parameters.gradient != null){
 			if(context.parameters.gradient.raw != null)
-				this.gradient = Gradient[context.parameters.gradient.raw];
+				this.gradient = context.parameters.gradient.raw;
 		}
  		
 		// Add code to update control view
