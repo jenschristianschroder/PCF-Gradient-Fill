@@ -2,8 +2,8 @@ import {IInputs, IOutputs} from "./generated/ManifestTypes";
 import DataSetInterfaces = ComponentFramework.PropertyHelper.DataSetApi;
 type DataSet = ComponentFramework.PropertyTypes.DataSet;
 
-export class LinearGradientFill implements ComponentFramework.StandardControl<IInputs, IOutputs> {
-
+export class RadialGradientFill implements ComponentFramework.StandardControl<IInputs, IOutputs> {
+	
 	// Cached context object for the latest updateView
 	private contextObj: ComponentFramework.Context<IInputs>;
 
@@ -79,54 +79,7 @@ export class LinearGradientFill implements ComponentFramework.StandardControl<II
 	 */
 	public updateView(context: ComponentFramework.Context<IInputs>): void
 	{
-		var offset: number;
-		var color: string;
-		var gradients: string = "";
-
-		if(context.parameters.rotation != null){
-			this.rotation = context.parameters.rotation.raw;
-		}
-		if(context.parameters.controlWidth != null){
-			this.controlWidth = context.parameters.controlWidth.raw;
-		}
-		if(context.parameters.controlHeight != null){
-			this.controlHeight = context.parameters.controlHeight.raw;
-		}
-		if(context.parameters.offsetStart != null){
-			if(context.parameters.offsetStart.raw != null)
-				this.offsetStart = context.parameters.offsetStart.raw;
-		}
-		if(context.parameters.offsetEnd != null){
-			if(context.parameters.offsetEnd.raw != null)
-			this.offsetEnd = context.parameters.offsetEnd.raw;
-		}
 		// Add code to update control view
-		if(!this.contextObj.parameters.GradientDataSet.loading){
-			if(this.contextObj.parameters.GradientDataSet.sortedRecordIds.length > 0)
-			{
-				for(let currentRecordId of this.contextObj.parameters.GradientDataSet.sortedRecordIds){
-					offset = parseInt(this.contextObj.parameters.GradientDataSet.records[currentRecordId].getFormattedValue("offset"));
-					color = this.contextObj.parameters.GradientDataSet.records[currentRecordId].getFormattedValue("color");
-					gradients = gradients +  "<stop offset='" + offset.toString() + "%'  stop-color='" + color + "' />";
-				}
-
-				var ratio = 1;
-				if(this.controlWidth != null && this.controlHeight != null)
-				 	ratio = this.controlHeight / this.controlWidth;
-
-				this.svgContainer.innerHTML = "<svg width='" + this.controlWidth + "' height='" + this.controlHeight + "' viewBox='0 0 " + this.controlWidth + " " + this.controlHeight + "'>" +
-												"<defs>" +
-													"<linearGradient id='" + this.controlId + "gradient' gradientUnits='userSpaceOnUse' x1='" + this.offsetStart + "%' x2='" + (100 - this.offsetEnd) + "%' y1='100%' y2='100%' gradientTransform='rotate(" + this.rotation?.toString() + ") scale(1 0.1)'>" +
-														gradients +
-													"</linearGradient>" +
-												"</defs>" +
-													"<g>" +
-														"<rect x='0' y='0' width='" + this.controlWidth + "' height='" + this.controlHeight + "' style='fill: url(\"#" + this.controlId + "gradient\");'></rect>" +
-													"</g>" +
-												"</svg>";
-
-			}
-		}
 	}
 
 	/** 
@@ -148,8 +101,6 @@ export class LinearGradientFill implements ComponentFramework.StandardControl<II
 	}
 
 }
-
-
 
 class Random {
 	static newString() {
