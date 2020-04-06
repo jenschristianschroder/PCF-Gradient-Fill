@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="PowerAppsGuy" constructor="GradientFill" version="0.0.4" display-name-key="GradientFill" description-key="GradientFill description" control-type="standard">
+  <control namespace="PowerAppsGuy" constructor="GradientFill" version="0.0.5" display-name-key="GradientFill" description-key="GradientFill description" control-type="standard">
     <!-- dataset node represents a set of entity records on CDS; allow more than one datasets -->
     <data-set name="GradientDataSet" display-name-key="GradientDataset_Display_Key">
       <property-set name="offset" display-name-key="offset_Display_Key" description-key="Gradient offset" of-type="Whole.None" usage="bound" required="true" />
